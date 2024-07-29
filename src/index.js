@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.scss";
 
 const HelloWorldComponent = lazy(() => import("./HelloWorldComponent"));
-const AnotherRouteComponent = lazy(() => import("./AnotherRouteComponent"));
 
 class App extends Component {
   constructor() {
@@ -28,14 +27,6 @@ const render = (Component) => {
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Component />} />
-        <Route
-          path="other"
-          element={
-            <Suspense fallback={<div>Loading Route...</div>}>
-              <AnotherRouteComponent />
-            </Suspense>
-          }
-        />
       </Routes>
     </BrowserRouter>,
     container
